@@ -24,7 +24,7 @@ python3 pb_to_tflite.py
 
 ## step 3
 
-tflite (float) to tflite (int8).
+tensorflow pb to tflite (int8).
 
 ```
 python3 quantize.py
@@ -32,7 +32,7 @@ python3 quantize.py
 
 ## step 4
 
-verification
+verificate tflite (float) and tflite (int8).
 
 ```
 python3 verification.py
