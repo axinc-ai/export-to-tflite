@@ -19,7 +19,7 @@ python3 keras_to_pb.py
 tensorflow pb to tflite (float).
 
 ```
-python3 pb_to_tflite_float.py
+python3 pb_to_tflite.py
 ```
 
 ## step 3
