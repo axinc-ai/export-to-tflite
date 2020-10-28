@@ -1,13 +1,7 @@
 import numpy as np
-from keras.preprocessing import image
-from keras.applications.resnet50 import preprocess_input, decode_predictions
 import sys
 import cv2
 
-from tensorflow.python.keras.models import Model
-from tensorflow.python.keras.layers import Dense
-from tensorflow.python.keras import backend as K
-import numpy as np
 import tensorflow as tf
 
 # settings

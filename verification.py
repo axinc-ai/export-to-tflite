@@ -4,8 +4,7 @@ import glob
 import cv2
 import numpy as np
 
-from keras.preprocessing import image
-from keras.applications.resnet50 import preprocess_input, decode_predictions
+from keras.applications.resnet50 import decode_predictions
 
 import tensorflow as tf
 
