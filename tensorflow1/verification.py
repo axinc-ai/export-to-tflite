@@ -13,7 +13,7 @@ output_model = "./models/output.tflite"
 output_quant_model = "./models/output_quant.tflite"
 
 # load validation set
-image_folder = "./calibration"
+image_folder = "../calibration"
 img_path = glob.glob(image_folder+"/*")
 if len(img_path)==0:
     print("image not found")
