@@ -4,7 +4,7 @@ Full integer quantization tutorial using tflite.
 
 ## requirements
 
-tensorflow==1.5
+tensorflow==1.5 or tensorflow==2.6
 
 ## step 1
 
