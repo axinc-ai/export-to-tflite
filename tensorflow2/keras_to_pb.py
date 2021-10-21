@@ -6,7 +6,7 @@ from tensorflow.python.keras import backend as K
 
 import tensorflow as tf
 
-from keras.applications.resnet import ResNet50
+from tensorflow.keras.applications.resnet import ResNet50
 
 # target model
 base_model = ResNet50(include_top=True, weights='imagenet')
