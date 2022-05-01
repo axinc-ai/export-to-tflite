@@ -1,26 +1,26 @@
 import numpy as np
 import sys
 import cv2
+import glob
 
 import tensorflow as tf
 
 # settings
 input_model = "saved_model_resnet50"
-
 output_model = "./models/output_quant.tflite"
+image_folder = "../calibration"
 
 # load validation set
-import glob
-
-image_folder = "../calibration"
 img_path = glob.glob(image_folder+"/*")
 if len(img_path)==0:
     print("image not found")
     sys.exit(1)
 
-validation_data_set=[]
-for file_name in img_path:
-    img = cv2.imread(file_name) #BGR
+#quantize
+def representative_dataset_gen():
+  for i in range(len(img_path)):
+    print(img_path[i])
+    img = cv2.imread(img_path[i]) #BGR
     img = cv2.resize(img,(224, 224))
     ary = np.asarray(img, dtype=np.float32)
     ary = np.expand_dims(ary, axis=0)
@@ -28,12 +28,7 @@ for file_name in img_path:
     ary = ary - mean
     ary = np.minimum(ary,127)
     ary = np.maximum(ary,-128)
-    validation_data_set.append(ary)
-
-#quantize
-def representative_dataset_gen():
-  for i in range(len(validation_data_set)):
-    yield [validation_data_set[i]]
+    yield [ary]
 
 converter = tf.lite.TFLiteConverter.from_saved_model(input_model)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]
