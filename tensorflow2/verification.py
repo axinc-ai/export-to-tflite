@@ -4,7 +4,7 @@ import glob
 import cv2
 import numpy as np
 
-from keras.applications.resnet import decode_predictions
+from tensorflow.keras.applications.resnet import decode_predictions
 
 import tensorflow as tf
 
