@@ -67,7 +67,7 @@ print("tf lite int8")
 
 for i in range(len(validation_data_set)):
     data = validation_data_set[i]
-    details = input_details[0]]
+    details = input_details[0]
     dtype = details['dtype']
     if dtype == np.uint8 or dtype == np.int8:
         quant_params = details['quantization_parameters']
@@ -80,4 +80,9 @@ for i in range(len(validation_data_set)):
     interpreter.set_tensor(input_details[0]['index'], data)
     interpreter.invoke()
     preds_tf_lite = interpreter.get_tensor(output_details[0]['index'])
+    details = output_details[0]
+    if details['dtype'] == np.uint8 or details['dtype'] == np.int8:
+        quant_params = details['quantization_parameters']
+        preds_tf_lite = preds_tf_lite - quant_params['zero_points']
+        preds_tf_lite = preds_tf_lite.astype(np.float32) * quant_params['scales']
     print('Predicted:', decode_predictions(preds_tf_lite, top=3)[0])
