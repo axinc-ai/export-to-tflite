@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-input_model = "saved_model_resnet50"
+input_model = "saved_model"
 output_model = "./models/output.tflite"
 
 #to tensorflow lite
