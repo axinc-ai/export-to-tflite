@@ -13,11 +13,11 @@ import tensorflow as tf
 #base_model = ResNet50(include_top=True, weights='imagenet')
 
 #MobileNet : Preprocess imagenet_utils.preprocess_input(x, data_format=data_format, mode="tf") RGB
-from tensorflow.keras.applications.mobilenet import MobileNet
-base_model = MobileNet(include_top=True, weights='imagenet')
+#from tensorflow.keras.applications.mobilenet import MobileNet
+#base_model = MobileNet(include_top=True, weights='imagenet')
 
 #MobileNetV2 : Preprocess imagenet_utils.preprocess_input(x, data_format=data_format, mode="tf") RGB
-#from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
-#base_model = MobileNetV2(include_top=True, weights='imagenet')
+from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
+base_model = MobileNetV2(include_top=True, weights='imagenet')
 
 base_model.save("saved_model")
