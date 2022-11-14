@@ -17,7 +17,12 @@ import tensorflow as tf
 #base_model = MobileNet(include_top=True, weights='imagenet')
 
 #MobileNetV2 : Preprocess imagenet_utils.preprocess_input(x, data_format=data_format, mode="tf") RGB
-from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
-base_model = MobileNetV2(include_top=True, weights='imagenet')
+#from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
+#base_model = MobileNetV2(include_top=True, weights='imagenet')
+
+#EfficientNetLite : Preprocess imagenet_utils.preprocess_input(x, data_format=data_format, mode="tf") RGB
+from efficientnet_lite import EfficientNetLiteB0
+import tensorflow as tf
+base_model = EfficientNetLiteB0(weights='imagenet', input_shape=(224, 224, 3))
 
 base_model.save("saved_model")

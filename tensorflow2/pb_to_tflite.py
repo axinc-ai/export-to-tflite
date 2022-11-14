@@ -1,8 +1,11 @@
 import numpy as np
 import tensorflow as tf
+import os
 
 input_model = "saved_model"
 output_model = "./models/output.tflite"
+
+os.makedirs("./models", exist_ok=True)
 
 #to tensorflow lite
 converter = tf.lite.TFLiteConverter.from_saved_model(input_model)
