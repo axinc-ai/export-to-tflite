@@ -12,7 +12,7 @@ import tensorflow as tf
 output_model = "./models/output.tflite"
 output_quant_model = "./models/output_quant.tflite"
 #preprocess_mode = "caffe" # resnet50
-preprocess_mode = "tf" # mobilenet
+preprocess_mode = "tf" # mobilenet, efficientnet
 
 # load validation set
 image_folder = "../calibration"

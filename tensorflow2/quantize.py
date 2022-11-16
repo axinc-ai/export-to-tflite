@@ -10,7 +10,7 @@ input_model = "saved_model"
 output_model = "./models/output_quant.tflite"
 image_folder = "../calibration"
 #preprocess_mode = "caffe" # resnet50
-preprocess_mode = "tf" # mobilenet
+preprocess_mode = "tf" # mobilenet, efficientnet
 
 # load validation set
 img_path = glob.glob(image_folder+"/*")
